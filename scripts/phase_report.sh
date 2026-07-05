@@ -55,15 +55,32 @@ fi
 echo ""
 
 echo "==> Open HITL checklist items"
+PHASE_NUM="${2:-}"
+if [[ -z "$PHASE_NUM" ]] && [[ "$(git branch --show-current)" =~ phase-([0-9]+) ]]; then
+  PHASE_NUM="${BASH_REMATCH[1]}"
+fi
+
 if [[ -f "$PLAN" ]]; then
-  awk '
-    /^### Phase [0-9]+ / { in_phase = 1; phase = $0; next }
-    /^### Phase [0-9]+ —/ { in_phase = 1; phase = $0; next }
-    /^## [0-9]+\./ { if ($0 !~ /^## [0-9]+\. Owner-only/) in_phase = 0 }
-    /^---$/ && in_phase { in_phase = 0 }
+  awk -v phase_num="$PHASE_NUM" '
+    /^## 3\. Owner-only/ { in_owner = 1; next }
+    /^## [0-9]+\./ { in_owner = 0 }
+    in_owner && /^- \[ \]/ { print "Global: " $0 }
+    phase_num != "" && $0 ~ "^### Phase " phase_num " " { in_phase = 1; phase = $0; next }
+    phase_num != "" && $0 ~ "^### Phase " phase_num " —" { in_phase = 1; phase = $0; next }
+    /^### Phase [0-9]+/ { in_phase = 0 }
     in_phase && /^- \[ \]/ { print phase ": " $0 }
-    /^- \[ \] \*\*H[0-9]+\.\*\*/ { print "Global: " $0 }
   ' "$PLAN" | sort -u
+  if [[ -z "$(awk -v phase_num="$PHASE_NUM" '
+    /^## 3\. Owner-only/ { in_owner = 1; next }
+    /^## [0-9]+\./ { in_owner = 0 }
+    in_owner && /^- \[ \]/ { print "x" }
+    phase_num != "" && $0 ~ "^### Phase " phase_num " " { in_phase = 1; next }
+    phase_num != "" && $0 ~ "^### Phase " phase_num " —" { in_phase = 1; next }
+    /^### Phase [0-9]+/ { in_phase = 0 }
+    in_phase && /^- \[ \]/ { print "x" }
+  ' "$PLAN")" ]]; then
+    echo "(none for current phase)"
+  fi
 else
   echo "(plan file not found)"
 fi
