@@ -1,0 +1,10 @@
+---
+description: ParkJukebox working agreement
+alwaysApply: true
+---
+- Single source of truth: PARKJUKEBOX_BUILD_PLAN.md. Sections 1-4 are locked.
+- Work one task ID at a time; state the ID first; stop at HITL tasks.
+- Never add Spotify/Apple Music SDKs. Never capture other apps' audio.
+- Offline-first: the park has no internet (plan C6).
+- Build must pass (scripts/build_check.sh) before every commit.
+- Any deviation from the plan gets one dated line in docs/DECISIONS.md.

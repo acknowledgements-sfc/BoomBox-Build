@@ -1,0 +1,8 @@
+---
+description: Swift/SwiftUI style
+globs: ["Sources/**/*.swift", "Tests/**/*.swift"]
+---
+- Swift concurrency (async/await, actors) over callbacks; @MainActor for UI state.
+- No force-unwraps or force-try in committed code; errors become user-facing copy.
+- Small views; feature state in observable models; SwiftData for persistence.
+- Pure logic (clock math, queue reducer, token parsing) lives framework-free and unit-tested.

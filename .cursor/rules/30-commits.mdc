@@ -1,0 +1,8 @@
+---
+description: Commit format
+alwaysApply: true
+---
+- ASCII only. Subject: [scope] imperative, <=72 chars, no period.
+- Body: why + how to verify, wrapped at 72. Blank line before trailers.
+- Required trailer: Task: <ID from the plan>. Optional: Fixes:, Refs:.
+- One task per commit. No AI attribution, no emoji, no co-author bots.

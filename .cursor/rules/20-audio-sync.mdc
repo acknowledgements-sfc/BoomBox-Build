@@ -1,0 +1,10 @@
+---
+description: Sync invariants - violating any of these breaks the product
+globs: ["Sources/Audio/**", "Sources/Sync/**", "Sources/Session/**"]
+---
+- Synced playback: AVAudioEngine + AVAudioPlayerNode.play(at:) with AVAudioTime(hostTime:). Never AVPlayer/AVAudioPlayer. Never Date()/wall clock for timing.
+- All cross-device times are MASTER hostTime; convert at the edge via SyncClock.
+- Compensation order: master start -> local offset -> minus (outputLatency + ioBufferDuration) -> minus user trim.
+- Re-anchor at every track start; mid-track joins use scheduleSegment from the computed frame.
+- Control messages: versioned Codable JSON, reliable MPC. Files: sendResource only.
+- Max 8 peers per session (MPC limit). Enforce at join.
