@@ -1,0 +1,5 @@
+# Park Jukebox Supabase project (ref: qznwgfzrhwnhhvrvhtgc)
+project_id = "qznwgfzrhwnhhvrvhtgc"
+
+[db]
+major_version = 15
