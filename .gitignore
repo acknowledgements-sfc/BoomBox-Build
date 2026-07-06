@@ -11,3 +11,14 @@ xcuserdata/
 # Swift Package Manager
 .build/
 .swiftpm/
+
+# Vercel
+.vercel/
+.vercel
+.env*
+
+# Supabase / secrets
+Config.xcconfig
+
+# Agent skills (installed locally via npx skills)
+.agents/
