@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PROJECT="$ROOT/ParkJukebox.xcodeproj"
 SCHEME="ParkJukebox"
-DESTINATION="${PKJB_DESTINATION:-platform=iOS Simulator,name=iPhone 16}"
+DESTINATION="${PKJB_DESTINATION:-platform=iOS Simulator,name=iPhone 17}"
 
 if ! command -v xcodebuild >/dev/null 2>&1; then
   echo "ERROR: xcodebuild not found. Install Xcode 16+ and select it with xcode-select."
