@@ -6,6 +6,22 @@ PROJECT="$ROOT/ParkJukebox.xcodeproj"
 SCHEME="ParkJukebox"
 DESTINATION="${PKJB_DESTINATION:-platform=iOS Simulator,name=iPhone 17}"
 
+if [[ -f "$ROOT/package.json" ]]; then
+  echo "==> Bridge tests"
+  if ! command -v npm >/dev/null 2>&1; then
+    echo "ERROR: npm not found. Install Node.js 18+ for bridge checks."
+    exit 1
+  fi
+  cd "$ROOT"
+  if [[ ! -d node_modules ]]; then
+    npm install
+  fi
+  npm run typecheck
+  npm test
+  echo "Bridge: OK"
+  echo ""
+fi
+
 if ! command -v xcodebuild >/dev/null 2>&1; then
   echo "ERROR: xcodebuild not found. Install Xcode 16+ and select it with xcode-select."
   exit 1

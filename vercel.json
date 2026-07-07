@@ -1,8 +1,17 @@
 {
   "buildCommand": null,
-  "installCommand": null,
+  "installCommand": "npm install",
   "framework": null,
+  "functions": {
+    "api/mcp.ts": {
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
     {
       "source": "/",
       "destination": "/web/index.html"

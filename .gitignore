@@ -20,5 +20,8 @@ xcuserdata/
 # Supabase / secrets
 Config.xcconfig
 
+# Node (bridge MCP server)
+node_modules/
+
 # Agent skills (installed locally via npx skills)
 .agents/

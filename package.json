@@ -1,0 +1,22 @@
+{
+  "name": "parkjukebox-bridge",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p bridge/tsconfig.json",
+    "test": "vitest run --config bridge/vitest.config.ts",
+    "test:watch": "vitest --config bridge/vitest.config.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "pg": "^8.16.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/pg": "^8.15.4",
+    "@vercel/node": "^5.1.16",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
