@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "parkjukebox-bridge": {
+      "url": "https://park-jukebox.vercel.app/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BRIDGE_TOKEN}"
+      }
+    }
+  }
+}
