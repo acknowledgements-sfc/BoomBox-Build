@@ -10,6 +10,17 @@
 		A10000010000000000000001 /* ParkJukeboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* ParkJukeboxApp.swift */; };
 		A10000010000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000002 /* ContentView.swift */; };
 		A10000010000000000000003 /* ParkJukeboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* ParkJukeboxTests.swift */; };
+		B10000010000000000000001 /* HostTimeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000001 /* HostTimeHelpers.swift */; };
+		B10000010000000000000002 /* HarnessLogExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000002 /* HarnessLogExporter.swift */; };
+		B10000010000000000000003 /* LearningTestsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000003 /* LearningTestsMenuView.swift */; };
+		B10000010000000000000004 /* LTA_OutputLatencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000004 /* LTA_OutputLatencyModel.swift */; };
+		B10000010000000000000005 /* LTA_OutputLatencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000005 /* LTA_OutputLatencyView.swift */; };
+		B10000010000000000000006 /* LTB_TransferHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000006 /* LTB_TransferHarness.swift */; };
+		B10000010000000000000007 /* LTB_TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000007 /* LTB_TransferView.swift */; };
+		B10000010000000000000008 /* LTC_HostTimeHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000008 /* LTC_HostTimeHarness.swift */; };
+		B10000010000000000000009 /* LTC_HostTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000010000000000000009 /* LTC_HostTimeView.swift */; };
+		B1000001000000000000000A /* lt_click.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2000001000000000000000A /* lt_click.wav */; };
+		B1000001000000000000000B /* lt_transfer_5mb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B2000001000000000000000B /* lt_transfer_5mb.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +39,17 @@
 		A20000010000000000000003 /* ParkJukeboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkJukeboxTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000004 /* ParkJukebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkJukebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20000010000000000000005 /* ParkJukeboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkJukeboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20000010000000000000001 /* HostTimeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostTimeHelpers.swift; sourceTree = "<group>"; };
+		B20000010000000000000002 /* HarnessLogExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarnessLogExporter.swift; sourceTree = "<group>"; };
+		B20000010000000000000003 /* LearningTestsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningTestsMenuView.swift; sourceTree = "<group>"; };
+		B20000010000000000000004 /* LTA_OutputLatencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTA_OutputLatencyModel.swift; sourceTree = "<group>"; };
+		B20000010000000000000005 /* LTA_OutputLatencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTA_OutputLatencyView.swift; sourceTree = "<group>"; };
+		B20000010000000000000006 /* LTB_TransferHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTB_TransferHarness.swift; sourceTree = "<group>"; };
+		B20000010000000000000007 /* LTB_TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTB_TransferView.swift; sourceTree = "<group>"; };
+		B20000010000000000000008 /* LTC_HostTimeHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTC_HostTimeHarness.swift; sourceTree = "<group>"; };
+		B20000010000000000000009 /* LTC_HostTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTC_HostTimeView.swift; sourceTree = "<group>"; };
+		B2000001000000000000000A /* lt_click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lt_click.wav; sourceTree = "<group>"; };
+		B2000001000000000000000B /* lt_transfer_5mb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lt_transfer_5mb.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +75,7 @@
 			children = (
 				A70000010000000000000002 /* Sources */,
 				A70000010000000000000003 /* Tests */,
+				B70000010000000000000001 /* Resources */,
 				A70000010000000000000004 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A70000010000000000000005 /* App */,
+				B70000010000000000000002 /* Dev */,
 				A70000010000000000000006 /* Audio */,
 				A70000010000000000000007 /* Sync */,
 				A70000010000000000000008 /* Session */,
@@ -111,6 +135,47 @@
 				A20000010000000000000003 /* ParkJukeboxTests.swift */,
 			);
 			path = ParkJukeboxTests;
+			sourceTree = "<group>";
+		};
+		B70000010000000000000001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B70000010000000000000003 /* LearningTests */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B70000010000000000000002 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				B70000010000000000000004 /* LearningTests */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
+		B70000010000000000000003 /* LearningTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2000001000000000000000A /* lt_click.wav */,
+				B2000001000000000000000B /* lt_transfer_5mb.mp3 */,
+			);
+			path = LearningTests;
+			sourceTree = "<group>";
+		};
+		B70000010000000000000004 /* LearningTests */ = {
+			isa = PBXGroup;
+			children = (
+				B20000010000000000000001 /* HostTimeHelpers.swift */,
+				B20000010000000000000002 /* HarnessLogExporter.swift */,
+				B20000010000000000000003 /* LearningTestsMenuView.swift */,
+				B20000010000000000000004 /* LTA_OutputLatencyModel.swift */,
+				B20000010000000000000005 /* LTA_OutputLatencyView.swift */,
+				B20000010000000000000006 /* LTB_TransferHarness.swift */,
+				B20000010000000000000007 /* LTB_TransferView.swift */,
+				B20000010000000000000008 /* LTC_HostTimeHarness.swift */,
+				B20000010000000000000009 /* LTC_HostTimeView.swift */,
+			);
+			path = LearningTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +259,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1000001000000000000000A /* lt_click.wav in Resources */,
+				B1000001000000000000000B /* lt_transfer_5mb.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +280,15 @@
 			files = (
 				A10000010000000000000001 /* ParkJukeboxApp.swift in Sources */,
 				A10000010000000000000002 /* ContentView.swift in Sources */,
+				B10000010000000000000001 /* HostTimeHelpers.swift in Sources */,
+				B10000010000000000000002 /* HarnessLogExporter.swift in Sources */,
+				B10000010000000000000003 /* LearningTestsMenuView.swift in Sources */,
+				B10000010000000000000004 /* LTA_OutputLatencyModel.swift in Sources */,
+				B10000010000000000000005 /* LTA_OutputLatencyView.swift in Sources */,
+				B10000010000000000000006 /* LTB_TransferHarness.swift in Sources */,
+				B10000010000000000000007 /* LTB_TransferView.swift in Sources */,
+				B10000010000000000000008 /* LTC_HostTimeHarness.swift in Sources */,
+				B10000010000000000000009 /* LTC_HostTimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +440,8 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBonjourServices = _pkjb-lt._tcp;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ParkJukebox learning tests discover nearby devices for file transfer measurement.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -392,6 +470,8 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBonjourServices = _pkjb-lt._tcp;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ParkJukebox learning tests discover nearby devices for file transfer measurement.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
