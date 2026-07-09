@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Park Jukebox — System Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1E8;
+    --ink:#22262B;
+    --orange:#FF5A1F;
+    --green:#2E6B3E;
+    --line:#D6DACB;
+    --card:#F7F8F3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Atkinson Hyperlegible',sans-serif;
+    font-size:17px;
+    line-height:1.55;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 64px;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:56px 0 40px;text-align:center;}
+  .leds{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .led{
+    width:16px;height:16px;border-radius:50%;
+    background:var(--orange);
+    animation:beat .8s ease-in-out infinite;
+  }
+  @keyframes beat{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,90,31,.45);}
+    50%{transform:scale(1.3);box-shadow:0 0 0 10px rgba(255,90,31,0);}
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--green);margin-bottom:14px;
+  }
+  h1{
+    font-family:'Archivo Black',sans-serif;
+    font-size:clamp(38px,9vw,58px);
+    line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;
+  }
+  h1 .accent{color:var(--orange);}
+  .hero p{max-width:400px;margin:18px auto 0;font-size:17px;}
+  .hero .caption{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6A6F63;margin-top:10px;
+  }
+
+  /* ---------- section headers ---------- */
+  .sec{margin-top:56px;}
+  .sec-head{
+    font-family:'Archivo Black',sans-serif;font-size:24px;text-transform:uppercase;
+    letter-spacing:.01em;margin-bottom:6px;
+  }
+  .sec-sub{color:#565B50;margin-bottom:26px;}
+
+  /* ---------- the song's journey (signal chain) ---------- */
+  .rail{position:relative;padding-left:34px;}
+  .rail::before{
+    content:"";position:absolute;left:11px;top:8px;bottom:8px;
+    width:2px;background:var(--line);
+  }
+  .stop{position:relative;padding:0 0 26px;}
+  .stop::before{
+    content:"";position:absolute;left:-30px;top:7px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:3px solid var(--orange);
+  }
+  .stop:last-child{padding-bottom:0;}
+  .stop:last-child::before{background:var(--orange);}
+  .stop-num{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;
+    color:var(--orange);letter-spacing:.12em;
+  }
+  .stop h3{font-size:19px;font-weight:700;margin:2px 0 4px;}
+  .stop p{color:#3E4339;max-width:460px;}
+  .tag{
+    display:inline-block;margin-top:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6A6F63;
+    background:#E4E8DA;border-radius:4px;padding:3px 8px;
+  }
+
+  /* ---------- phases ---------- */
+  .phase{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 20px 18px;margin-bottom:16px;
+  }
+  .phase-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+  .mini-leds{display:flex;gap:6px;}
+  .mini{
+    width:10px;height:10px;border-radius:50%;
+    border:2px solid var(--orange);background:transparent;
+  }
+  .mini.on{background:var(--orange);}
+  .phase-label{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--green);
+  }
+  .phase h3{
+    font-family:'Archivo Black',sans-serif;font-size:20px;text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .phase p{color:#3E4339;}
+  .done{
+    margin-top:12px;padding:10px 12px;border-left:4px solid var(--green);
+    background:#EAF0E6;border-radius:0 8px 8px 0;font-size:15px;
+  }
+  .done b{color:var(--green);}
+  .phase .tag{margin-top:12px;}
+
+  /* ---------- in / out ---------- */
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:520px){.panels{grid-template-columns:1fr;}}
+  .panel{border-radius:14px;padding:18px;border:1px solid var(--line);background:var(--card);}
+  .panel.in{border-top:5px solid var(--green);}
+  .panel.out{border-top:5px solid #B4B9AA;}
+  .panel h4{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:12px;
+  }
+  .panel.in h4{color:var(--green);}
+  .panel.out h4{color:#7A7F72;}
+  .panel ul{list-style:none;}
+  .panel li{padding:6px 0;border-bottom:1px dashed var(--line);font-size:16px;}
+  .panel li:last-child{border-bottom:none;}
+  .panel.out li{color:#7A7F72;}
+
+  /* ---------- next ---------- */
+  .next{
+    margin-top:56px;background:var(--ink);color:var(--paper);
+    border-radius:14px;padding:24px 22px;text-align:center;
+  }
+  .next .phase-label{color:var(--orange);}
+  .next h3{font-family:'Archivo Black',sans-serif;font-size:22px;text-transform:uppercase;margin:6px 0 8px;}
+  .next p{color:#C9CDBF;font-size:16px;max-width:380px;margin:0 auto;}
+
+  @media (prefers-reduced-motion: reduce){
+    .led{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="leds" aria-hidden="true">
+      <span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span>
+    </div>
+    <div class="eyebrow">System Map · Park Jukebox (name TBD)</div>
+    <h1>One park.<br><span class="accent">One beat.</span></h1>
+    <p>Every phone plays its <b>own copy</b> of the song, started at the exact same instant. That's the whole machine.</p>
+    <div class="caption">four phones · one beat · zero streaming</div>
+  </header>
+
+  <!-- ============ THE JOURNEY ============ -->
+  <section class="sec">
+    <h2 class="sec-head">Follow one song</h2>
+    <p class="sec-sub">A single track's journey from someone's pocket to the whole park.</p>
+
+    <div class="rail">
+
+      <div class="stop">
+        <div class="stop-num">01</div>
+        <h3>Find the party</h3>
+        <p>Open the app at the park. A live session nearby shows up.</p>
+        <span class="tag">GPS + local discovery</span>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num">02</div>
+        <h3>Verified in</h3>
+        <p>Tap join. Your verified badge is the wristband — only real accounts get in.</p>
+        <span class="tag">Sign in with Apple + phone verify</span>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num">03</div>
+        <h3>Cue a track</h3>
+        <p>Pick from your files or the built-in catalog. It drops into one shared queue everyone can vote on.</p>
+        <span class="tag">shared queue + votes</span>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num">04</div>
+        <h3>Copies fly out</h3>
+        <p>The song file lands on every phone in the session before it plays. Nothing streams to speakers.</p>
+        <span class="tag">MultipeerConnectivity / cloud relay</span>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num">05</div>
+        <h3>Clocks agree</h3>
+        <p>All phones lock to one shared stopwatch: "track starts at 8:00:00.000."</p>
+        <span class="tag">NTP-style clock sync</span>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num">06</div>
+        <h3>Start early</h3>
+        <p>Each phone knows its speaker's delay and starts that much sooner — sprinters on staggered blocks.</p>
+        <span class="tag">AVAudioEngine · outputLatency</span>
+      </div>
+
+      <div class="stop">
+        <div class="stop-num">07</div>
+        <h3>One giant speaker</h3>
+        <p>Every Bluetooth speaker hits the beat together. The park <i>is</i> the sound system.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ BUILD PHASES ============ -->
+  <section class="sec">
+    <h2 class="sec-head">Build order</h2>
+    <p class="sec-sub">Hardest risk first. Each phase ends with a moment you can feel.</p>
+
+    <div class="phase">
+      <div class="phase-top">
+        <span class="phase-label">Phase 1</span>
+        <span class="mini-leds"><span class="mini on"></span><span class="mini"></span><span class="mini"></span><span class="mini"></span><span class="mini"></span></span>
+      </div>
+      <h3>Sync magic</h3>
+      <p>Two phones, one MP3, a manual sync slider. Then grow to four and make calibration automatic.</p>
+      <div class="done"><b>Done when:</b> 4 phones play one song in perfect sync in your living room.</div>
+      <span class="tag">AVAudioEngine · clock sync</span>
+    </div>
+
+    <div class="phase">
+      <div class="phase-top">
+        <span class="phase-label">Phase 2</span>
+        <span class="mini-leds"><span class="mini on"></span><span class="mini on"></span><span class="mini"></span><span class="mini"></span><span class="mini"></span></span>
+      </div>
+      <h3>The party</h3>
+      <p>Host or join a session. Shared queue, voting, song files flying between phones.</p>
+      <div class="done"><b>Done when:</b> friends cue songs without ever touching your phone.</div>
+      <span class="tag">MultipeerConnectivity · queue</span>
+    </div>
+
+    <div class="phase">
+      <div class="phase-top">
+        <span class="phase-label">Phase 3</span>
+        <span class="mini-leds"><span class="mini on"></span><span class="mini on"></span><span class="mini on"></span><span class="mini"></span><span class="mini"></span></span>
+      </div>
+      <h3>Trust</h3>
+      <p>Accounts, verification, and host powers: skip, mute, remove.</p>
+      <div class="done"><b>Done when:</b> only verified people can join or queue.</div>
+      <span class="tag">Sign in with Apple · CloudKit</span>
+    </div>
+
+    <div class="phase">
+      <div class="phase-top">
+        <span class="phase-label">Phase 4</span>
+        <span class="mini-leds"><span class="mini on"></span><span class="mini on"></span><span class="mini on"></span><span class="mini on"></span><span class="mini"></span></span>
+      </div>
+      <h3>The look</h3>
+      <p>Built-in catalog plus your branding — this phase is your home turf.</p>
+      <div class="done"><b>Done when:</b> it feels like a product, not a demo.</div>
+      <span class="tag">your design system</span>
+    </div>
+
+    <div class="phase">
+      <div class="phase-top">
+        <span class="phase-label">Phase 5</span>
+        <span class="mini-leds"><span class="mini on"></span><span class="mini on"></span><span class="mini on"></span><span class="mini on"></span><span class="mini on"></span></span>
+      </div>
+      <h3>Park day</h3>
+      <p>Real outdoor beta: distance, sunlight, phone batteries, chaos.</p>
+      <div class="done"><b>Done when:</b> strangers' speakers sync at an actual park.</div>
+      <span class="tag">TestFlight</span>
+    </div>
+  </section>
+
+  <!-- ============ V1 SCOPE ============ -->
+  <section class="sec">
+    <h2 class="sec-head">Version 1 scope</h2>
+    <p class="sec-sub">Tight on purpose. Everything on the right can come later.</p>
+    <div class="panels">
+      <div class="panel in">
+        <h4>In</h4>
+        <ul>
+          <li>Your music files</li>
+          <li>Built-in catalog</li>
+          <li>Speakers in sync</li>
+          <li>Shared queue + votes</li>
+          <li>Verified users</li>
+        </ul>
+      </div>
+      <div class="panel out">
+        <h4>Not yet</h4>
+        <ul>
+          <li>Spotify / Apple Music</li>
+          <li>AirPlay output (home mode)</li>
+          <li>Android</li>
+          <li>Loose-sync experiments</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="next">
+    <span class="phase-label">Next step</span>
+    <h3>Phase 1 brief</h3>
+    <p>A ready-to-paste brief for Cursor: the two-phone sync prototype. Say the word.</p>
+  </div>
+
+</div>
+</body>
+</html>
