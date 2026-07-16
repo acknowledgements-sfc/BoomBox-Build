@@ -122,13 +122,55 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		A70000010000000000000006 /* Audio */ = { isa = PBXGroup; path = Audio; sourceTree = "<group>"; };
-		A70000010000000000000007 /* Sync */ = { isa = PBXGroup; path = Sync; sourceTree = "<group>"; };
-		A70000010000000000000008 /* Session */ = { isa = PBXGroup; path = Session; sourceTree = "<group>"; };
-		A70000010000000000000009 /* Queue */ = { isa = PBXGroup; path = Queue; sourceTree = "<group>"; };
-		A7000001000000000000000A /* Library */ = { isa = PBXGroup; path = Library; sourceTree = "<group>"; };
-		A7000001000000000000000B /* Auth */ = { isa = PBXGroup; path = Auth; sourceTree = "<group>"; };
-		A7000001000000000000000C /* UI */ = { isa = PBXGroup; path = UI; sourceTree = "<group>"; };
+		A70000010000000000000006 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		A70000010000000000000007 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		A70000010000000000000008 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		A70000010000000000000009 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		A7000001000000000000000A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		A7000001000000000000000B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A7000001000000000000000C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		A7000001000000000000000D /* ParkJukeboxTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,10 +479,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3JYK7Q92SF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBonjourServices = _pkjb-lt._tcp;
+				INFOPLIST_KEY_NSBonjourServices = "_pkjb-lt._tcp";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ParkJukebox learning tests discover nearby devices for file transfer measurement.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -467,10 +509,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3JYK7Q92SF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBonjourServices = _pkjb-lt._tcp;
+				INFOPLIST_KEY_NSBonjourServices = "_pkjb-lt._tcp";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ParkJukebox learning tests discover nearby devices for file transfer measurement.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
